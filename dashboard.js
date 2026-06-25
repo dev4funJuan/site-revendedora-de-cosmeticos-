@@ -43,12 +43,10 @@ function renderizarProdutos(produtosParaExibir) {
         const msg = `Olá! Quero encomendar: ${produto.nome} (R$ ${produto.preco})`;
         const link = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(msg)}`;
 
-        // Só exibe favorito se o usuário estiver logado
         const jaFavoritou = usuarioLogado && favoritosPorUsuario.includes(produto.id);
         const iconeCoracao = jaFavoritou ? "♥" : "♡";
         const classeFavorito = jaFavoritou ? "favoritado" : "";
         
-        // Se não estiver logado, clicar no coração vai avisar para fazer login
         const acaoClique = usuarioLogado 
             ? `alternarFavorito(${produto.id})` 
             : `alert('Por favor, faça login para salvar seus favoritos!')`;
@@ -66,18 +64,15 @@ function renderizarProdutos(produtosParaExibir) {
     });
 }
 
-// SISTEMA DE LOGIN DE CLIENTE
 function fazerLogin() {
     if (!usuarioLogado) {
-        // Simula a entrada do usuário
         usuarioLogado = true;
         document.getElementById("txt-login").innerText = "Olá, Cliente v";
         document.getElementById("btn-login").classList.add("logado");
         alert("Login efetuado com sucesso! Seus favoritos agora serão salvos.");
     } else {
-        // Se clicar de novo, faz Logoff
         usuarioLogado = false;
-        favoritosPorUsuario = []; // Limpa os favoritos ao sair
+        favoritosPorUsuario = []; 
         document.getElementById("txt-login").innerText = "Entrar";
         document.getElementById("btn-login").classList.remove("logado");
         categoriaAtual = "todos";
@@ -129,9 +124,10 @@ document.getElementById("campo-busca").addEventListener("input", executarFiltros
 window.onload = () => {
     renderizarProdutos(produtos);
 };
+
 // LISTA DE FRASES PERSONALIZADAS
 const frasesAlerta = [
-    "Achadinhos da XXX para você, Encomende já o seu!",
+    "Achadinhos da Beauty Vendas para você, Encomende já o seu!",
     "Vendemos também no Instagram! Siga @seu_instagram",
     "Entrega direta em Mogi Mirim e região!"
 ];
@@ -142,18 +138,13 @@ function alternarFrasesTopo() {
     const elementoTexto = document.getElementById("texto-alerta");
     if (!elementoTexto) return;
 
-    // Dispara a animação radical de sumiço (Giro + Zoom Out)
     elementoTexto.classList.add("escondido");
 
-    // Aguarda 600ms (tempo exato da nova animação do CSS) para trocar a frase
     setTimeout(() => {
         indiceFraseAtual = (indiceFraseAtual + 1) % frasesAlerta.length;
         elementoTexto.innerText = frasesAlerta[indiceFraseAtual];
-
-        // Remove a classe para o texto surgir de volta com o efeito elástico
         elementoTexto.classList.remove("escondido");
     }, 600);
 }
 
-// Configura para trocar de frase a cada 8 segundos (8000 milissegundos)
 setInterval(alternarFrasesTopo, 8000);

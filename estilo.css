@@ -20,24 +20,6 @@
     }
 }
 
-@keyframes brilho {
-    0%, 100% {
-        text-shadow: 0 0 10px rgba(255, 0, 107, 0.5);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(255, 0, 107, 1);
-    }
-}
-
-@keyframes flutuarSuave {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
 @keyframes gradientShift {
     0%, 100% { background-position: 0% center; }
     50% { background-position: 100% center; }
@@ -92,27 +74,7 @@ header p {
     font-weight: 500;
 }
 
-/* ============ TOPO ALERTA ============ */
-.topo-alerta {
-    background: linear-gradient(90deg, #ff006b, #ff1493, #ffb3d9, #ff006b);
-    background-size: 200% 100%;
-    animation: gradientShift 3s ease infinite;
-    color: #FFFFFF;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    padding: 10px 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    perspective: 1000px;
-    box-shadow: 0 4px 20px rgba(255, 0, 107, 0.6);
-}
-
+/* ============ TOPO ALERTA ROTATIVO ============ */
 .topo-alerta-rotativo {
     background: linear-gradient(90deg, #ff006b, #ff1493, #ffb3d9, #ff006b);
     background-size: 200% 100%;
@@ -290,11 +252,6 @@ main {
 }
 
 /* ============ IMAGENS ============ */
-.card-produto picture,
-.card-produto img {
-    display: block;
-}
-
 .card-produto img {
     height: 200px;
     width: 200px;
@@ -303,6 +260,7 @@ main {
     background: linear-gradient(135deg, #fff5f9, #ffe0e6);
     border-radius: 15px;
     transition: transform 0.4s ease;
+    display: block;
 }
 
 .card-produto:hover img {
@@ -360,7 +318,6 @@ main {
     transform: scale(0.98);
 }
 
-/* ============ VAZIO ============ */
 .sem-produtos {
     grid-column: 1 / -1;
     text-align: center;
@@ -378,7 +335,7 @@ main {
     max-width: 1160px;
     margin: 0 auto 20px;
     padding: 0 20px;
-    color: #000000;
+    color: #333333;
 }
 
 .login-btn {
