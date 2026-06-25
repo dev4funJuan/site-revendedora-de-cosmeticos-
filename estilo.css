@@ -1,5 +1,5 @@
 /* Importando a Fonte Premium 'Poppins' */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -8,14 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    /* Fundo elegante: um degradê bem suave que vai do branco para um rosa pastel bem clarinho */
-    background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F7 100%);
-    background-attachment: fixed;
-    color: #1A1A1A;
-}
-
-/* Animação de surgimento suave para o topo e os produtos */
+/* ============ ANIMAÇÕES ============ */
 @keyframes aparecerSuave {
     from {
         opacity: 0;
@@ -27,41 +20,55 @@ body {
     }
 }
 
-/* Faixa de Destaque no Topo */
-
-/* Container do Alerta com Perspectiva 3D */
-.topo-alerta-rotativo {
-    background-color: #ff0090; /* Rosa Marcante da Mary Kay */
-    color: #FFFFFF;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    padding: 10px 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    perspective: 1000px; /* Cria o efeito de profundidade para o giro 3D */
+@keyframes brilho {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 0, 107, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 0, 107, 1);
+    }
 }
 
-/* Estado Base do Texto */
-#texto-alerta {
-    display: inline-block;
-    transform-origin: center center;
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efeito elástico radical */
-    opacity: 1;
-    transform: scale(1) rotateX(0deg);
+@keyframes flutuarSuave {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-/* Animação Radical: O texto gira em 3D e encolhe ao sumir */
-#texto-alerta.escondido {
-    opacity: 0;
-    transform: scale(0.3) rotateX(90deg) translateY(-50px);
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
 }
 
+@keyframes pulso {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(255, 0, 107, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 4px 25px rgba(255, 0, 107, 1);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* ============ BODY & BACKGROUND ============ */
+body {
+    background: linear-gradient(135deg, #FFFFFF 0%, #fff5f9 50%, #FFFFFF 100%);
+    background-attachment: fixed;
+    color: #333333;
+    min-height: 100vh;
+}
+
+/* ============ HEADER ============ */
 header {
     background: transparent;
     padding: 30px 20px;
@@ -70,19 +77,76 @@ header {
 }
 
 header h1 {
-    font-size: 2.5rem;
-    color: #1A1A1A;
+    font-size: 2.8rem;
+    color: #333333;
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 header p {
-    color: #666666;
-    font-size: 0.85rem;
+    color: #ff006b;
+    font-size: 0.95rem;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
+/* ============ TOPO ALERTA ============ */
+.topo-alerta {
+    background: linear-gradient(90deg, #ff006b, #ff1493, #ffb3d9, #ff006b);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 4px 20px rgba(255, 0, 107, 0.6);
+}
+
+.topo-alerta-rotativo {
+    background: linear-gradient(90deg, #ff006b, #ff1493, #ffb3d9, #ff006b);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 4px 20px rgba(255, 0, 107, 0.6);
+}
+
+#texto-alerta {
+    display: inline-block;
+    transform-origin: center center;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+}
+
+#texto-alerta.escondido {
+    opacity: 0;
+    transform: scale(0.3) rotateX(90deg) translateY(-50px);
+}
+
+/* ============ BUSCA ============ */
 .busca-container {
     max-width: 600px;
     margin: 0 auto;
@@ -91,54 +155,64 @@ header p {
 .busca-container input {
     width: 100%;
     padding: 12px 25px;
-    border: 1px solid #E5E5E5;
-    /* Cantos bem arredondados e modernos */
-    border-radius: 30px; 
+    border: 2px solid #ff006b;
+    border-radius: 30px;
     outline: none;
     font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    background: rgba(255, 255, 255, 0.98);
+    color: #333333;
+    box-shadow: 0 4px 20px rgba(255, 0, 107, 0.15);
     transition: all 0.3s ease;
 }
 
-.busca-container input:focus {
-    border-color: #E4A0B7;
-    box-shadow: 0 4px 15px rgba(228, 160, 183, 0.2);
+.busca-container input::placeholder {
+    color: #ffb3d9;
 }
 
-/* Abas de Categorias */
+.busca-container input:focus {
+    border-color: #ff1493;
+    box-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+    transform: scale(1.02);
+}
+
+/* ============ CATEGORIAS ============ */
 .abas-categorias {
     display: flex;
     justify-content: center;
     gap: 25px;
     margin: 20px auto;
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #ff006b, #ff1493, #ffb3d9) 1;
     max-width: 1000px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .aba-btn {
-    background: none;
+    background: transparent;
     border: none;
     font-size: 0.9rem;
     cursor: pointer;
     color: #666666;
-    font-weight: 400;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-bottom: 3px solid transparent;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .aba-btn:hover {
-    color: #D40078;
+    color: #ff006b;
+    transform: scale(1.05);
 }
 
 .aba-btn.ativa {
-    color: #D40078;
-    font-weight: 600;
-    border-bottom: 2px solid #D40078;
+    color: #ff006b;
+    font-weight: 700;
+    border-bottom: 3px solid #ff006b;
+    text-shadow: 0 0 10px rgba(255, 0, 107, 0.4);
 }
 
-/* Vitrine de Produtos */
+/* ============ MAIN ============ */
 main {
     max-width: 1200px;
     margin: 40px auto;
@@ -151,87 +225,95 @@ main {
     gap: 30px;
 }
 
-/* FORMATO DO CARD COM CURVAS E ANIMAÇÕES */
+/* ============ CARDS ============ */
 .card-produto {
     background: #FFFFFF;
-    /* Cantos super arredondados, suaves e modernos */
-    border-radius: 20px; 
+    border-radius: 20px;
     padding: 20px;
-    text-align: left;
+    text-align: center;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid rgba(242, 242, 242, 0.7);
-    /* Sombra suave para dar profundidade de luxo */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03); 
-    /* Transição suave para que qualquer mudança de tamanho/cor seja animada */
+    border: 2px solid #ffb3d9;
+    box-shadow: 0 10px 30px rgba(255, 0, 107, 0.12);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    /* Faz os produtos surgirem um a um com leveza */
     animation: aparecerSuave 0.6s ease forwards;
+    overflow: hidden;
 }
 
-/* Efeito ao passar o mouse (Hover Animado) */
 .card-produto:hover {
-    transform: translateY(-8px); /* Ele flutua para cima */
-    box-shadow: 0 15px 35px rgba(212, 0, 120, 0.08); /* Sombra ganha um tom sutil rosa */
-    border-color: rgba(228, 160, 183, 0.4);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(255, 0, 107, 0.25);
+    border-color: #ff006b;
 }
 
-/* Selo "Mais Vendidos" Arredondado */
+/* ============ SELO ============ */
 .selo-tag {
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: #E4A0B7;
+    background: linear-gradient(135deg, #ff006b, #ff1493);
     color: #FFFFFF;
     font-size: 0.7rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 15px; /* Selo em formato de pílula arredondada */
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 15px;
     text-transform: uppercase;
     z-index: 10;
+    box-shadow: 0 4px 15px rgba(255, 0, 107, 0.5);
+    animation: pulso 2s ease-in-out infinite;
 }
 
-/* Coração de Favorito Animado */
+/* ============ CORAÇÃO ============ */
 .coracao-favorito {
     position: absolute;
     top: 15px;
     right: 15px;
-    color: #999999;
-    font-size: 1.3rem;
+    color: #ffb3d9;
+    font-size: 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
+    text-shadow: 0 0 5px rgba(255, 0, 107, 0.2);
 }
 
 .coracao-favorito:hover {
-    color: #D40078;
-    transform: scale(1.2); /* Coração aumenta ligeiramente de tamanho */
+    color: #ff006b;
+    transform: scale(1.3);
+    text-shadow: 0 0 15px rgba(255, 0, 107, 0.6);
 }
 
-/* Área da Imagem */
-/* Área da Imagem Ajustada e Centralizada */
+.coracao-favorito.favoritado {
+    color: #ff006b !important;
+    animation: pulsar 0.5s ease-in-out;
+}
+
+/* ============ IMAGENS ============ */
+.card-produto picture,
 .card-produto img {
-    height: 200px;        /* Altura fixa para manter todas iguais */
-    width: 200px;         /* Largura fixa para não esticar para os lados */
-    margin: 0 auto 15px;  /* 'auto' nas laterais centraliza a imagem perfeitamente */
-    display: block;       /* Permite o alinhamento central */
-    object-fit: contain;  /* Garante que a foto nunca mude de proporção ou distorça */
-    background-color: #FAFAFA; 
-    border-radius: 15px; 
+    display: block;
+}
+
+.card-produto img {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 15px;
+    object-fit: contain;
+    background: linear-gradient(135deg, #fff5f9, #ffe0e6);
+    border-radius: 15px;
     transition: transform 0.4s ease;
 }
 
-/* Efeito na imagem quando passa o mouse no card */
 .card-produto:hover img {
-    transform: scale(1.03); /* Leve aproximação na foto do produto */
+    transform: scale(1.05);
 }
 
+/* ============ TEXTO ============ */
 .card-produto h3 {
     font-size: 0.95rem;
-    font-weight: 500;
-    color: #1A1A1A;
+    font-weight: 600;
+    color: #333333;
     margin-bottom: 8px;
     height: 40px;
     overflow: hidden;
@@ -239,108 +321,105 @@ main {
 }
 
 .card-produto .preco {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #1A1A1A;
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff006b, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 15px;
 }
 
-/* Botão de Compra Estilo Pílula Moderno */
+/* ============ BOTÃO ============ */
 .btn-comprar {
     display: block;
-    background: linear-gradient(135deg, #E4A0B7 0%, #D40078 100%); /* Degradê sofisticado no botão */
+    background: linear-gradient(135deg, #ff006b, #ff1493, #ffb3d9);
+    background-size: 200% 100%;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
-    padding: 12px;
-    border-radius: 25px; /* Totalmente arredondado */
-    font-weight: 600;
+    padding: 14px;
+    border-radius: 25px;
+    font-weight: 700;
     font-size: 0.85rem;
-    box-shadow: 0 4px 10px rgba(212, 0, 120, 0.2);
+    box-shadow: 0 6px 20px rgba(255, 0, 107, 0.4);
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn-comprar:hover {
-    box-shadow: 0 6px 15px rgba(212, 0, 120, 0.35);
-    transform: scale(1.02); /* Botão pulsa levemente ao passar o mouse */
+    background-position: 200% 0;
+    box-shadow: 0 8px 30px rgba(255, 0, 107, 0.6);
+    transform: scale(1.05);
 }
 
+.btn-comprar:active {
+    transform: scale(0.98);
+}
+
+/* ============ VAZIO ============ */
 .sem-produtos {
     grid-column: 1 / -1;
     text-align: center;
-    color: #888888;
-    font-size: 1.1rem;
+    color: #ff006b;
+    font-size: 1.2rem;
     margin-top: 40px;
+    font-weight: 500;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background-color: #1A1A1A;
-    color: #FFFFFF;
-    margin-top: 100px;
-    font-size: 0.8rem;
-    border-top: 3px solid #D40078;
-}/* Estilo para quando o coração for clicado (Ativo) */
-.coracao-favorito.favoritado {
-    color: #D40078 !important; /* Muda de cinza para o rosa marcante */
-    animation: pulsar 0.5s ease-in-out;
-}
-
-/* Animação charmosa de pulsação ao favoritar */
-@keyframes pulsar {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-}
-/* Alinhamento do Topo Superior */
+/* ============ HEADER SUPERIOR ============ */
 .header-superior {
-    
+    display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1160px;
     margin: 0 auto 20px;
     padding: 0 20px;
+    color: #000000;
 }
 
-/* Botão de Login Elegante */
 .login-btn {
-    background-color: #FFFFFF;
-    border: 1px solid #E5E5E5;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #ff006b;
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
-    
+    display: flex;
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
+    color: #333333;
 }
 
 .login-btn:hover {
-    border-color: #D40078;
-    color: #D40078;
+    border-color: #ff1493;
+    color: #ff006b;
+    background-color: rgba(255, 0, 107, 0.1);
 }
 
 .login-btn.logado {
-    background-color: #FFF5F7;
-    border-color: #E4A0B7;
-    color: #1A1A1A;
+    background-color: rgba(255, 0, 107, 0.15);
+    border-color: #ff006b;
+    color: #333333;
 }
 
 .avatar-icon {
     font-size: 1rem;
 }
 
-/* Ajuste das Imagens para ficarem perfeitas e centralizadas */
-.card-produto img {
-    height: 200px;
-    width: 200px;
-    margin: 0 auto 15px;
-    display: block;
-    object-fit: cover; /* 'cover' corta sutilmente preenchendo o espaço quadrado sem deformar */
-    background-color: #FAFAFA; 
-    border-radius: 15px; 
-    transition: transform 0.4s ease;
+/* ============ FOOTER ============ */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(90deg, #fff5f9, #FFFFFF);
+    color: #666666;
+    margin-top: 100px;
+    font-size: 0.8rem;
+    border-top: 3px solid;
+    border-image: linear-gradient(90deg, #ff006b, #ff1493, #ffb3d9) 1;
 }
