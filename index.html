@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Márcia Vendas - Consultoria de Beleza</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <div class="topo-alerta-rotativo">
+    <span id="texto-alerta" class="fade">Achadinhos da XXX para você, Encomende já o seu!</span>
+</div>
+</div>
+    <header>
+        <div class="header-superior">
+            <div class="logo">
+                <h1>Beauty Vendas</h1>
+                <p>Produtos Mary Kay & Cosméticos de Luxo</p>
+            </div>
+            <div class="login-container">
+                <button id="btn-login" class="login-btn" onclick="fazerLogin()">
+                    <span class="avatar-icon"></span> <span id="txt-login">Entrar</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="busca-container">
+            <input type="text" id="campo-busca" placeholder="O que você está procurando hoje?">
+        </div>
+    </header>
+
+    <nav class="abas-categorias">
+        <button class="aba-btn ativa" onclick="filtrarCategoria('todos')">Todos</button>
+        <button class="aba-btn" onclick="filtrarCategoria('maquiagem')">Maquiagem</button>
+        <button class="aba-btn" onclick="filtrarCategoria('perfumes')">Perfumes</button>
+        <button class="aba-btn" onclick="filtrarCategoria('cuidados')">Cuidados com a Pele</button>
+        <button class="aba-btn" onclick="filtrarCategoria('favoritos')">Favoritos</button>
+    </nav>
+
+    <main>
+        <div id="vitrine-produtos" class="produtos-container"></div>
+    </main>
+
+    <footer>
+        <p>&copy; Junho 2026 - Catálogo Digital .</p>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+/* Importando a Fonte Premium 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Fundo elegante: um degradê bem suave que vai do branco para um rosa pastel bem clarinho */
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F7 100%);
+    background-attachment: fixed;
+    color: #1A1A1A;
+}
+
+/* Animação de surgimento suave para o topo e os produtos */
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Faixa de Destaque no Topo */
+
+/* Container do Alerta com Perspectiva 3D */
+.topo-alerta-rotativo {
+    background-color: #D40078; /* Rosa Marcante da Mary Kay */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px; /* Cria o efeito de profundidade para o giro 3D */
+}
+
+/* Estado Base do Texto */
+#texto-alerta {
+    display: inline-block;
+    transform-origin: center center;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efeito elástico radical */
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+}
+
+/* Animação Radical: O texto gira em 3D e encolhe ao sumir */
+#texto-alerta.escondido {
+    opacity: 0;
+    transform: scale(0.3) rotateX(90deg) translateY(-50px);
+}
+
+header {
+    background: transparent;
+    padding: 30px 20px;
+    text-align: center;
+    animation: aparecerSuave 0.8s ease forwards;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #1A1A1A;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header p {
+    color: #666666;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.busca-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.busca-container input {
+    width: 100%;
+    padding: 12px 25px;
+    border: 1px solid #E5E5E5;
+    /* Cantos bem arredondados e modernos */
+    border-radius: 30px; 
+    outline: none;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.busca-container input:focus {
+    border-color: #E4A0B7;
+    box-shadow: 0 4px 15px rgba(228, 160, 183, 0.2);
+}
+
+/* Abas de Categorias */
+.abas-categorias {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px auto;
+    border-bottom: 1px solid #E5E5E5;
+    max-width: 1000px;
+    padding-bottom: 10px;
+}
+
+.aba-btn {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #666666;
+    font-weight: 400;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.aba-btn:hover {
+    color: #D40078;
+}
+
+.aba-btn.ativa {
+    color: #D40078;
+    font-weight: 600;
+    border-bottom: 2px solid #D40078;
+}
+
+/* Vitrine de Produtos */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.produtos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* FORMATO DO CARD COM CURVAS E ANIMAÇÕES */
+.card-produto {
+    background: #FFFFFF;
+    /* Cantos super arredondados, suaves e modernos */
+    border-radius: 20px; 
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(242, 242, 242, 0.7);
+    /* Sombra suave para dar profundidade de luxo */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03); 
+    /* Transição suave para que qualquer mudança de tamanho/cor seja animada */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* Faz os produtos surgirem um a um com leveza */
+    animation: aparecerSuave 0.6s ease forwards;
+}
+
+/* Efeito ao passar o mouse (Hover Animado) */
+.card-produto:hover {
+    transform: translateY(-8px); /* Ele flutua para cima */
+    box-shadow: 0 15px 35px rgba(212, 0, 120, 0.08); /* Sombra ganha um tom sutil rosa */
+    border-color: rgba(228, 160, 183, 0.4);
+}
+
+/* Selo "Mais Vendidos" Arredondado */
+.selo-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #E4A0B7;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 15px; /* Selo em formato de pílula arredondada */
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+/* Coração de Favorito Animado */
+.coracao-favorito {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #999999;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.coracao-favorito:hover {
+    color: #D40078;
+    transform: scale(1.2); /* Coração aumenta ligeiramente de tamanho */
+}
+
+/* Área da Imagem */
+/* Área da Imagem Ajustada e Centralizada */
+.card-produto img {
+    height: 200px;        /* Altura fixa para manter todas iguais */
+    width: 200px;         /* Largura fixa para não esticar para os lados */
+    margin: 0 auto 15px;  /* 'auto' nas laterais centraliza a imagem perfeitamente */
+    display: block;       /* Permite o alinhamento central */
+    object-fit: contain;  /* Garante que a foto nunca mude de proporção ou distorça */
+    background-color: #FAFAFA; 
+    border-radius: 15px; 
+    transition: transform 0.4s ease;
+}
+
+/* Efeito na imagem quando passa o mouse no card */
+.card-produto:hover img {
+    transform: scale(1.03); /* Leve aproximação na foto do produto */
+}
+
+.card-produto h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1A1A1A;
+    margin-bottom: 8px;
+    height: 40px;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.card-produto .preco {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 15px;
+}
+
+/* Botão de Compra Estilo Pílula Moderno */
+.btn-comprar {
+    display: block;
+    background: linear-gradient(135deg, #E4A0B7 0%, #D40078 100%); /* Degradê sofisticado no botão */
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 25px; /* Totalmente arredondado */
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 10px rgba(212, 0, 120, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-comprar:hover {
+    box-shadow: 0 6px 15px rgba(212, 0, 120, 0.35);
+    transform: scale(1.02); /* Botão pulsa levemente ao passar o mouse */
+}
+
+.sem-produtos {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #888888;
+    font-size: 1.1rem;
+    margin-top: 40px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    margin-top: 100px;
+    font-size: 0.8rem;
+    border-top: 3px solid #D40078;
+}/* Estilo para quando o coração for clicado (Ativo) */
+.coracao-favorito.favoritado {
+    color: #D40078 !important; /* Muda de cinza para o rosa marcante */
+    animation: pulsar 0.5s ease-in-out;
+}
+
+/* Animação charmosa de pulsação ao favoritar */
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+/* Alinhamento do Topo Superior */
+.header-superior {
+    
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1160px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
+
+/* Botão de Login Elegante */
+.login-btn {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    border-color: #D40078;
+    color: #D40078;
+}
+
+.login-btn.logado {
+    background-color: #FFF5F7;
+    border-color: #E4A0B7;
+    color: #1A1A1A;
+}
+
+.avatar-icon {
+    font-size: 1rem;
+}
+
+/* Ajuste das Imagens para ficarem perfeitas e centralizadas */
+.card-produto img {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 15px;
+    display: block;
+    object-fit: cover; /* 'cover' corta sutilmente preenchendo o espaço quadrado sem deformar */
+    background-color: #FAFAFA; 
+    border-radius: 15px; 
+    transition: transform 0.4s ease;
+}
