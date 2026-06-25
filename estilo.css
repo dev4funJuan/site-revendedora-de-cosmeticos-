@@ -31,9 +31,10 @@ body {
 
 /* Container do Alerta com Perspectiva 3D */
 .topo-alerta-rotativo {
-    background-color: #D40078; /* Rosa Marcante da Mary Kay */
+    background-color: #ff0090; /* Rosa Marcante da Mary Kay */
     color: #FFFFFF;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
     padding: 10px 20px;
     font-size: 0.85rem;
     font-weight: 500;
